@@ -10,7 +10,7 @@ import org.dm.entities.static_object.Tree;
 import java.util.HashMap;
 import java.util.Map;
 
-public class SpriteRepository {
+public class SpriteView {
 
     private final Map<Class<? extends Entity>, String> sprites;
 
