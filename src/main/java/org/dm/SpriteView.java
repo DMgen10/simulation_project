@@ -14,7 +14,7 @@ public class SpriteView {
 
     private final Map<Class<? extends Entity>, String> sprites;
 
-    public SpriteRepository() {
+    public SpriteView() {
         sprites = new HashMap<>();
         mapping();
     }
