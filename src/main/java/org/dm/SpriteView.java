@@ -27,7 +27,7 @@ public class SpriteView {
         sprites.put(Tree.class, "T");
     }
 
-    public String getSprite(Entity entity){
+    public String getView(Entity entity){
         if (entity == null){
             return " . ";
         }
