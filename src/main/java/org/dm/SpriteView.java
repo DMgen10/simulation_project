@@ -20,18 +20,18 @@ public class SpriteView {
     }
 
     private void mapping(){
-        sprites.put(Herbivore.class, "H");
-        sprites.put(Predator.class, "P");
-        sprites.put(Grass.class, "G");
-        sprites.put(Rock.class, "R");
-        sprites.put(Tree.class, "T");
+        sprites.put(Herbivore.class, SpriteDictionary.SPRITE_HERBIVORE);
+        sprites.put(Predator.class, SpriteDictionary.SPRITE_PREDATOR);
+        sprites.put(Grass.class, SpriteDictionary.SPRITE_GRASS);
+        sprites.put(Rock.class, SpriteDictionary.SPRITE_ROCK);
+        sprites.put(Tree.class, SpriteDictionary.SPRITE_TREE);
     }
 
     public String getView(Entity entity){
         if (entity == null){
-            return " . ";
+            return SpriteDictionary.SPRITE_EMPTY;
         }
-        return sprites.get(entity);
+        return sprites.get(entity.getClass());
     }
 
 }
