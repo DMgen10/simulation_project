@@ -14,7 +14,7 @@ public class Render {
         for (int x = 0; x < map.getWidth(); x++) {
             for (int y = 0; y < map.getHeight(); y++) {
                 Position position = new Position(x,y);
-                System.out.print(sprites.getSprite(map.getEntity(position)));
+                System.out.print(sprites.getView(map.getEntity(position)));
             }
             System.out.println();
         }
