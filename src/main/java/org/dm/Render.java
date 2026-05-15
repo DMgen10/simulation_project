@@ -3,7 +3,7 @@ package org.dm;
 public class Render {
 
     private MapSimulation map;
-    private SpriteRepository sprites = new SpriteRepository();
+    private SpriteView sprites = new SpriteView();
 
     public Render(MapSimulation simulation) {
         this.map = simulation;
