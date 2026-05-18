@@ -2,8 +2,8 @@ package org.dm;
 
 public class Render {
 
-    private MapSimulation map;
-    private SpriteView sprites = new SpriteView();
+    private final MapSimulation map;
+    private final SpriteView sprites = new SpriteView();
 
     public Render(MapSimulation simulation) {
         this.map = simulation;
