@@ -9,7 +9,7 @@ import java.util.Random;
 
 public abstract class SpawnAction implements Action {
 
-    private Random random = new Random();
+    private final Random random = new Random();
     private int count = 5;
 
     @Override
