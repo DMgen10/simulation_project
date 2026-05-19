@@ -50,8 +50,9 @@ public class MapSimulation {
         return map.containsKey(position);
     }
 
-    public boolean isAcceptableLimit(Position position){
-        return !(position.x() > getWidth() || position.y() > getHeight() || position.x() < 0 || position.y() < 0 );
+    public boolean isAcceptableLimit(int x, int y) {
+//        return !(position.x() > getWidth() || position.y() > getHeight() || position.x() < 0 || position.y() < 0);
+        return x >= 0 && x < getHeight() && y >= 0 && getHeight() > y;
     }
 
     /*
