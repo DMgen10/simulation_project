@@ -6,6 +6,6 @@ import org.dm.entities.creatures.Herbivore;
 public class SpawnHerbivore extends SpawnAction{
     @Override
     protected Entity spawn() {
-        return new Herbivore();
+        return new Herbivore(2, 20);
     }
 }
