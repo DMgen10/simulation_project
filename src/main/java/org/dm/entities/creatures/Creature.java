@@ -26,6 +26,27 @@ public class Creature extends Entity {
 
     // в процессе реализации
     public void makeMove(MapSimulation map, Position currentPosition){
+
+        Class<?extends Entity> targetClass = getTargetType();
+        List<Position> path = pathFinder.find(map, currentPosition, targetClass);
+
+        if (path.isEmpty()){
+            makeRandomMove(map, currentPosition);
+            return;
+        }
+
+        int targetIndex = Math.min(path.size() - 1, getSpeed() - 1);
+        Position newPosition = path.get(targetIndex);
+
+        if (targetIndex == path.size() - 1){
+            Entity targetEntity = map.getEntity(newPosition);
+
+            if (targetEntity != null){
+                interactWithTarget(map, currentPosition, newPosition, targetEntity);
+                return;
+            }
+        }
+
         map.remove(currentPosition);
         map.add(currentPosition, map.getEntity(currentPosition));
     }
