@@ -62,4 +62,29 @@ public class Creature extends Entity {
             int x = currentPosition.x() + direction[0];
             int y = currentPosition.y() + direction[1];
 
+            if (map.isAcceptableLimit(x,y)){
+                Position position = new Position(x,y);
+                if (!map.isBusy(position)){
+                    validMoves.add(position);
+                }
+            }
+        }
+        if (!validMoves.isEmpty()){
+            int randomIndex = random.nextInt(validMoves.size());
+            Position newPosition = validMoves.get(randomIndex);
+
+            map.remove(currentPosition);
+            map.add(newPosition, this);
+        }
+    }
+
+    protected abstract Class<? extends Entity> getTargetType();
+
+    public int getSpeed() {
+        return speed;
+    }
+
+    public int getHealth() {
+        return health;
+    }
 }
