@@ -51,5 +51,15 @@ public class Creature extends Entity {
         map.add(currentPosition, map.getEntity(currentPosition));
     }
 
+    protected abstract void interactWithTarget(MapSimulation map, Position currentPosition, Position targetPosition, Entity entity);
+    
+    private void makeRandomMove(MapSimulation map,Position currentPosition){
+        int[][] directions = {{0,1},{0,-1},{1,0},{-1,0}};
+
+        List<Position> validMoves = new ArrayList<>();
+
+        for (int[] direction: directions){
+            int x = currentPosition.x() + direction[0];
+            int y = currentPosition.y() + direction[1];
 
 }
