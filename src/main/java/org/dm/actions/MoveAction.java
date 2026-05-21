@@ -10,7 +10,7 @@ import java.util.Map;
 
 public class MoveAction implements Action {
 
-    private MapSimulation map;
+    private final MapSimulation map;
 
     public MoveAction(MapSimulation map) {
         this.map = map;
