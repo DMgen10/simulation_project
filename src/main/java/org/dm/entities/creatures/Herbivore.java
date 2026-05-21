@@ -12,8 +12,8 @@ public class Herbivore extends Creature {
     }
 
     @Override
-    protected void interactWithTarget(MapSimulation map, Position currentPosition, Position newPosition, Entity entity) {
-        Grass grass = (Grass) entity;
+    protected void interactWithTarget(MapSimulation map, Position currentPosition, Position newPosition, Entity targetEntity) {
+        Grass grass = (Grass) targetEntity;
 
         this.heal(grass.getNutritionValue());
 
