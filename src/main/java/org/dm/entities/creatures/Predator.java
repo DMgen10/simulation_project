@@ -3,7 +3,6 @@ package org.dm.entities.creatures;
 import org.dm.MapSimulation;
 import org.dm.Position;
 import org.dm.entities.Entity;
-import org.dm.entities.static_object.Grass;
 
 public class Predator extends Creature {
 
@@ -19,14 +18,18 @@ public class Predator extends Creature {
     }
 
     @Override
-    protected void interactWithTarget(MapSimulation map, Position currentPosition, Position targetPosition, Entity entity) {
-        Creature target = (Creature) entity;
+    protected void interactWithTarget(MapSimulation map, Position currentPosition, Position targetPosition, Entity targtEntity) {
+        if (!(targtEntity instanceof Creature)){
+            return;
+        }
+
+        Creature target = (Herbivore) targtEntity;
         target.takeDamage(this.getDamage());
+        this.heal(getDamage());
 
         if (target.getHealth() <= 0){
-            this.heal(getDamage());
-            map.remove(currentPosition);
-            map.add(targetPosition, this);
+            map.remove(targetPosition);
+            System.out.printf("волк cъел травоядного: ");
         }
     }
 
