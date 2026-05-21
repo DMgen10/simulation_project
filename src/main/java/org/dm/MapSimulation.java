@@ -55,6 +55,28 @@ public class MapSimulation {
         return x >= 0 && x < getHeight() && y >= 0 && getHeight() > y;
     }
 
+    public void showCountCreatures(){
+        int countPredators = 0;
+        int countHerbivores = 0;
+        int countGrass = 0;
+
+        for (Entity count: map.values()){
+            if (count instanceof Herbivore){
+                countHerbivores++;
+            }
+            if (count instanceof Predator){
+                countPredators++;
+            }
+            if (count instanceof Grass){
+                countGrass++;
+            }
+        }
+
+        System.out.println("Хищников: " + countPredators);
+        System.out.println("Травоядных: " + countHerbivores);
+        System.out.printf("Травы: " + countGrass);
+    }
+
     /*
         1. Метод добавления сущности по координате и указанию существа
         2. Метод удаления по координате
