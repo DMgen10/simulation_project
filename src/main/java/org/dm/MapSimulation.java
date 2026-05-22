@@ -74,7 +74,7 @@ public class MapSimulation {
 
         System.out.println("Хищников: " + countPredators);
         System.out.println("Травоядных: " + countHerbivores);
-        System.out.printf("Травы: " + countGrass);
+        System.out.println("Травы: " + countGrass);
     }
 
     /*
