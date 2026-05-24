@@ -24,7 +24,7 @@ public class HungryAction implements Action{
            if (entity instanceof Creature){
                ((Creature) entity).takeDamage(1);
                if (((Creature) entity).isDead()){
-                   ((Creature) entity).remove(map,position);
+                   map.remove(position);
                }
            }
        }
