@@ -106,4 +106,6 @@
         public int getHealth() {
             return health;
         }
+
+        public abstract Creature createChild();
     }
