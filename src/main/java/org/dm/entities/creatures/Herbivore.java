@@ -25,4 +25,9 @@ public class Herbivore extends Creature {
     protected Class<? extends Entity> getTargetType() {
         return Grass.class;
     }
+
+    @Override
+    public Creature createChild() {
+        return new Herbivore(this.getSpeed(), 10);
+    }
 }
