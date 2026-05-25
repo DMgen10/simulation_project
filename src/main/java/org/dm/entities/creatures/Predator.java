@@ -6,7 +6,7 @@ import org.dm.entities.Entity;
 
 public class Predator extends Creature {
 
-    private int damage;
+    private final int damage;
 
     public int getDamage() {
         return damage;
