@@ -16,8 +16,8 @@ public class Simulation {
     private Render render = new Render(map);
     private int count = 0; // тестово
 
-    private List<Action> initActions = new ArrayList<>();
-    private List<Action> turnActions = new ArrayList<>();
+    private final List<Action> initActions = new ArrayList<>();
+    private final List<Action> turnActions = new ArrayList<>();
 
     public void nextTurn(){
         for (Action action: turnActions){
