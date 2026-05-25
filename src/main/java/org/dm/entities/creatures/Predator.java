@@ -37,4 +37,9 @@ public class Predator extends Creature {
     protected Class<? extends Entity> getTargetType() {
         return Herbivore.class;
     }
+
+    @Override
+    public Creature createChild() {
+        return new Predator(this.getSpeed(), 10);
+    }
 }
