@@ -51,7 +51,7 @@
 
         private List<Position> getValidNeighbors(MapSimulation map, Position current, Class<? extends Entity> targetType){
             List<Position> neighbors = new LinkedList<>();
-            int[][] directions = new int[][]{{1,0},{-1,0},{0,1},{0,-1}};
+            int[][] directions = {{1,0},{-1,0},{0,1},{0,-1}};
 
             for (int[] direction : directions){
                 int x = current.x() + direction[0];
