@@ -12,9 +12,9 @@ public class Predator extends Creature {
         return damage;
     }
 
-    public Predator(int speed, int health) {
-        super(1, 20);
-        this.damage = 2;
+    public Predator(int speed, int health, int damage) {
+        super(speed, health);
+        this.damage = damage;
     }
 
     @Override
@@ -29,7 +29,6 @@ public class Predator extends Creature {
 
         if (target.getHealth() <= 0){
             map.remove(targetPosition);
-            System.out.printf("волк cъел травоядного: ");
         }
     }
 
@@ -40,6 +39,6 @@ public class Predator extends Creature {
 
     @Override
     public Creature createChild() {
-        return new Predator(this.getSpeed(), 10);
+        return new Predator(this.getSpeed(),getHealth(), getDamage());
     }
 }
