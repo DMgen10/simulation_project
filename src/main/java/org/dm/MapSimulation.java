@@ -4,16 +4,18 @@ import org.dm.entities.Entity;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Random;
 
 public class MapSimulation {
 
     private int widthMap;
     private int heightMap;
     private Map<Position, Entity> map;
+    private final Random random = new Random();
 
-    public MapSimulation(int width, int height){
+    public MapSimulation(int width, int height) {
 
-        if (width < 0 || height < 0){
+        if (width < 0 || height < 0) {
             throw new IllegalArgumentException("the width and height cannot be less than zero");
         }
 
@@ -22,7 +24,7 @@ public class MapSimulation {
         map = new HashMap<>(widthMap * heightMap);
     }
 
-    public Entity getEntity(Position position){
+    public Entity getEntity(Position position) {
         return map.get(position);
     }
 
@@ -38,15 +40,15 @@ public class MapSimulation {
         return heightMap;
     }
 
-    public void add(Position position, Entity entity){
+    public void add(Position position, Entity entity) {
         map.put(position, entity);
     }
 
-    public void remove(Position position){
+    public void remove(Position position) {
         map.remove(position);
     }
 
-    public boolean isBusy(Position position){
+    public boolean isBusy(Position position) {
         return map.containsKey(position);
     }
 
@@ -55,27 +57,19 @@ public class MapSimulation {
         return x >= 0 && x < getHeight() && y >= 0 && getHeight() > y;
     }
 
-    public void showCountCreatures(){
-        int countPredators = 0;
-        int countHerbivores = 0;
-        int countGrass = 0;
+    public Position getRandomPosition(){
 
-        for (Entity count: map.values()){
-            if (count instanceof Herbivore){
-                countHerbivores++;
-            }
-            if (count instanceof Predator){
-                countPredators++;
-            }
-            if (count instanceof Grass){
-                countGrass++;
+        while (true){
+            int x = random.nextInt(0,getWidth());
+            int y = random.nextInt(0,getHeight());
+            Position position = new Position(x,y);
+            if (!isBusy(position)){
+                return position;
             }
         }
 
-        System.out.println("Хищников: " + countPredators);
-        System.out.println("Травоядных: " + countHerbivores);
-        System.out.println("Травы: " + countGrass);
     }
+
 
     /*
         1. Метод добавления сущности по координате и указанию существа
