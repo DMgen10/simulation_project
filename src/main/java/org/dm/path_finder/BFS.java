@@ -32,7 +32,6 @@
                         queue.add(neighbor);
                     }
                 }
-
             }
             return Collections.emptyList();
         }
