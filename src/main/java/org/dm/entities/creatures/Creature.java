@@ -12,18 +12,18 @@
 
     public abstract class Creature extends Entity {
 
-        private int speed;
+        private final int speed;
         private int health;
-        private Random random = new Random();
-        private PathFinder pathFinder = new BFS();
+        private final Random random = new Random();
+        private final PathFinder pathFinder = new BFS();
 
         public Creature(int speed, int health) {
             this.speed = speed;
             this.health = health;
         }
 
-        public void takeDamage(int damage){
-            this.health = Math.max(0, this.health - damage);
+        public boolean isDead(){
+            return this.getHealth() <= 0;
         }
 
         public void heal(int value){
@@ -106,6 +106,11 @@
         public int getHealth() {
             return health;
         }
+
+        public void takeDamage(int damage){
+            this.health = Math.max(0, this.health - damage);
+        }
+
 
         public abstract Creature createChild();
     }
