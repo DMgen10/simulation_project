@@ -2,6 +2,7 @@ package org.dm.actions;
 
 import org.dm.MapSimulation;
 import org.dm.Position;
+import org.dm.SettingsSimulation;
 import org.dm.entities.Entity;
 import org.dm.entities.creatures.Creature;
 
@@ -9,12 +10,14 @@ import java.util.*;
 
 public class ActionReproduction implements Action{
 
-    public static final int REPR_THRESHOLD = 8;
-
+    private final int REPR_THRESHOLD;
+    private final SettingsSimulation settingsSimulation;
     private final MapSimulation map;
 
-    public ActionReproduction(MapSimulation map) {
+    public ActionReproduction(MapSimulation map, SettingsSimulation settingsSimulation) {
         this.map = map;
+        this.settingsSimulation = settingsSimulation;
+        REPR_THRESHOLD = settingsSimulation.getHealthHerbivore();
     }
 
     @Override
