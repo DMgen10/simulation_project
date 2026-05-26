@@ -2,12 +2,13 @@ package org.dm.actions.init_actions;
 
 import org.dm.MapSimulation;
 import org.dm.Position;
+import org.dm.SettingsSimulation;
 import org.dm.actions.Action;
 import org.dm.entities.Entity;
 
-import java.util.Random;
-
 public abstract class SpawnAction implements Action {
+    protected final SettingsSimulation settings;
+    private final int countSpawn;
 
     public SpawnAction(SettingsSimulation settings, int count) {
         this.settings = settings;
@@ -16,14 +17,13 @@ public abstract class SpawnAction implements Action {
 
     @Override
     public void execute(MapSimulation map) {
+        int spawned = 0;
 
-        while (count > 0){
-            int width = random.nextInt(0,map.getWidth());
-            int height = random.nextInt(0,map.getHeight());
-            Position position = new Position(width,height);
+        while (spawned < countSpawn){
+            Position position = map.getRandomPosition();
             if (!map.isBusy(position)){
                 map.add(position, spawn());
-                count--;
+                spawned++;
             }
         }
 
