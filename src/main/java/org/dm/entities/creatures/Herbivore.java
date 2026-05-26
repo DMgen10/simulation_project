@@ -8,7 +8,7 @@ import org.dm.entities.static_object.Grass;
 public class Herbivore extends Creature {
 
     public Herbivore(int speed, int health) {
-        super(2, 20);
+        super(speed,health);
     }
 
     @Override
