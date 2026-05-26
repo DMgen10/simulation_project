@@ -9,8 +9,10 @@ import java.util.Random;
 
 public abstract class SpawnAction implements Action {
 
-    private final Random random = new Random();
-    private int count = 5;
+    public SpawnAction(SettingsSimulation settings, int count) {
+        this.settings = settings;
+        this.countSpawn = count;
+    }
 
     @Override
     public void execute(MapSimulation map) {
