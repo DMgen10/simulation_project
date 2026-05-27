@@ -1,6 +1,6 @@
-package org.dm;
+package org.dm.simulation;
 
-import org.dm.entities.Entity;
+import org.dm.simulation.entities.Entity;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -8,9 +8,9 @@ import java.util.Random;
 
 public class MapSimulation {
 
-    private int widthMap;
-    private int heightMap;
-    private Map<Position, Entity> map;
+    private final int widthMap;
+    private final int heightMap;
+    private final Map<Position, Entity> map;
     private final Random random = new Random();
 
     public MapSimulation(int width, int height) {
@@ -53,7 +53,6 @@ public class MapSimulation {
     }
 
     public boolean isAcceptableLimit(int x, int y) {
-//        return !(position.x() > getWidth() || position.y() > getHeight() || position.x() < 0 || position.y() < 0);
         return x >= 0 && x < getHeight() && y >= 0 && getHeight() > y;
     }
 
@@ -67,14 +66,5 @@ public class MapSimulation {
                 return position;
             }
         }
-
     }
-
-
-    /*
-        1. Метод добавления сущности по координате и указанию существа
-        2. Метод удаления по координате
-        3. Метод проверки, занята ли позиция
-        4. Метод проверки, находится ли позиция в пределах карты
-     */
 }
