@@ -1,8 +1,8 @@
-package org.dm.entities.creatures;
+package org.dm.simulation.entities.creatures;
 
-import org.dm.MapSimulation;
-import org.dm.Position;
-import org.dm.entities.Entity;
+import org.dm.simulation.MapSimulation;
+import org.dm.simulation.Position;
+import org.dm.simulation.entities.Entity;
 
 public class Predator extends Creature {
 
