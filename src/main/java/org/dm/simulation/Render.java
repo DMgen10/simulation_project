@@ -1,4 +1,4 @@
-package org.dm;
+package org.dm.simulation;
 
 public class Render {
 
