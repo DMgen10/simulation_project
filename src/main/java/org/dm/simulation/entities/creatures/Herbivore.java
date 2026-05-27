@@ -1,9 +1,9 @@
-package org.dm.entities.creatures;
+package org.dm.simulation.entities.creatures;
 
-import org.dm.MapSimulation;
-import org.dm.Position;
-import org.dm.entities.Entity;
-import org.dm.entities.static_object.Grass;
+import org.dm.simulation.MapSimulation;
+import org.dm.simulation.Position;
+import org.dm.simulation.entities.Entity;
+import org.dm.simulation.entities.static_object.Grass;
 
 public class Herbivore extends Creature {
 
@@ -28,6 +28,6 @@ public class Herbivore extends Creature {
 
     @Override
     public Creature createChild() {
-        return new Herbivore(this.getSpeed(), 10);
+        return new Herbivore(this.getSpeed(), getHealth());
     }
 }
