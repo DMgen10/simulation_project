@@ -37,6 +37,6 @@ public class HungryAction implements Action{
         for (Position position: deadPos){
             map.remove(position);
         }
-        
+
     }
 }
