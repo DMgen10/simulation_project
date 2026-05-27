@@ -1,11 +1,12 @@
-package org.dm.actions.init_actions;
+package org.dm.simulation.actions.init_actions;
 
-import org.dm.SettingsSimulation;
-import org.dm.entities.Entity;
-import org.dm.entities.static_object.Tree;
+import org.dm.simulation.SettingsSimulation;
+import org.dm.simulation.entities.Entity;
+import org.dm.simulation.entities.static_object.Tree;
 
 public class SpawnTree extends SpawnAction{
     public SpawnTree(SettingsSimulation settings) {
+
         super(settings, settings.getCountTrees());
     }
 
