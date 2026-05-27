@@ -1,11 +1,10 @@
-    package org.dm.entities.creatures;
+    package org.dm.simulation.entities.creatures;
 
-    import org.dm.MapSimulation;
-    import org.dm.Position;
-    import org.dm.entities.Entity;
-    import org.dm.path_finder.BFS;
-    import org.dm.path_finder.PathFinder;
-
+    import org.dm.simulation.MapSimulation;
+    import org.dm.simulation.Position;
+    import org.dm.simulation.entities.Entity;
+    import org.dm.simulation.path_finder.BFS;
+    import org.dm.simulation.path_finder.PathFinder;
     import java.util.ArrayList;
     import java.util.List;
     import java.util.Random;
@@ -30,7 +29,6 @@
             this.health += value;
         }
 
-        // в процессе реализации
         public void makeMove(MapSimulation map, Position currentPosition){
 
             Class<?extends Entity> targetClass = getTargetType();
@@ -54,20 +52,10 @@
                 }
             }
 
-    //        if (targetIndex == path.size() - 1){
-    //            Entity targetEntity = map.getEntity(newPosition);
-    //            if (targetEntity != null){
-    //                interactWithTarget(map, currentPosition, newPosition, targetEntity);
-    //                return;
-    //            }
-    //        }
             if (!map.isBusy(newPosition)){
                 map.remove(currentPosition);
                 map.add(newPosition, this);
             }
-
-    //        map.remove(currentPosition);
-    //        map.add(newPosition, this);
         }
 
         protected abstract void interactWithTarget(MapSimulation map, Position currentPosition, Position targetPosition, Entity entity);
@@ -110,7 +98,6 @@
         public void takeDamage(int damage){
             this.health = Math.max(0, this.health - damage);
         }
-
 
         public abstract Creature createChild();
     }
