@@ -45,7 +45,7 @@
             Position newPosition = path.get(targetIndex);
 
             if (path.size() - 1 <= getSpeed()){
-                Position targetPosition = path.get(path.size() - 1);
+                Position targetPosition = path.getLast();
                 Entity targetEntity = map.getEntity(targetPosition);
 
                 if (targetEntity != null){
