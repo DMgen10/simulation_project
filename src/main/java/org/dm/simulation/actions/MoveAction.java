@@ -1,9 +1,9 @@
-package org.dm.actions;
+package org.dm.simulation.actions;
 
-import org.dm.MapSimulation;
-import org.dm.Position;
-import org.dm.entities.Entity;
-import org.dm.entities.creatures.Creature;
+import org.dm.simulation.MapSimulation;
+import org.dm.simulation.Position;
+import org.dm.simulation.entities.Entity;
+import org.dm.simulation.entities.creatures.Creature;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -23,7 +23,6 @@ public class MoveAction implements Action {
         for (Map.Entry<Position,Creature> entry: creaturesForTurn.entrySet()){
             Position currentPosition = entry.getKey();
             Creature creature = entry.getValue();
-
             creature.makeMove(map, currentPosition);
         }
     }
