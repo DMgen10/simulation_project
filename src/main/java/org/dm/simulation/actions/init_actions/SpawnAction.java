@@ -1,8 +1,8 @@
 package org.dm.simulation.actions.init_actions;
 
-import org.dm.simulation.MapSimulation;
-import org.dm.simulation.Position;
-import org.dm.simulation.SettingsSimulation;
+import org.dm.simulation.model.MapSimulation;
+import org.dm.simulation.model.Position;
+import org.dm.simulation.config.SettingsSimulation;
 import org.dm.simulation.actions.Action;
 import org.dm.simulation.entities.Entity;
 

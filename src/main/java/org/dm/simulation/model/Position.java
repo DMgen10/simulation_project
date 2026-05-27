@@ -1,4 +1,4 @@
-package org.dm.simulation;
+package org.dm.simulation.model;
 
 public record Position(int x, int y) {
 

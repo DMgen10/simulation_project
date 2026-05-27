@@ -1,6 +1,6 @@
 package org.dm.simulation.actions.init_actions;
 
-import org.dm.simulation.SettingsSimulation;
+import org.dm.simulation.config.SettingsSimulation;
 import org.dm.simulation.entities.Entity;
 import org.dm.simulation.entities.static_object.Rock;
 

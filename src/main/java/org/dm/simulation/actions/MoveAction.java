@@ -1,7 +1,7 @@
 package org.dm.simulation.actions;
 
-import org.dm.simulation.MapSimulation;
-import org.dm.simulation.Position;
+import org.dm.simulation.model.MapSimulation;
+import org.dm.simulation.model.Position;
 import org.dm.simulation.entities.Entity;
 import org.dm.simulation.entities.creatures.Creature;
 

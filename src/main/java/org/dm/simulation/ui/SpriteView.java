@@ -1,4 +1,4 @@
-package org.dm.simulation;
+package org.dm.simulation.ui;
 
 import org.dm.simulation.entities.Entity;
 import org.dm.simulation.entities.creatures.Herbivore;
@@ -6,6 +6,7 @@ import org.dm.simulation.entities.creatures.Predator;
 import org.dm.simulation.entities.static_object.Grass;
 import org.dm.simulation.entities.static_object.Rock;
 import org.dm.simulation.entities.static_object.Tree;
+
 import java.util.HashMap;
 import java.util.Map;
 

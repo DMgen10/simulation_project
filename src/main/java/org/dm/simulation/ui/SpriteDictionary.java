@@ -1,4 +1,4 @@
-package org.dm.simulation;
+package org.dm.simulation.ui;
 
 public class SpriteDictionary {
 

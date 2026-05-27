@@ -1,6 +1,6 @@
 package org.dm.simulation.actions;
 
-import org.dm.simulation.MapSimulation;
+import org.dm.simulation.model.MapSimulation;
 
 public interface Action {
 

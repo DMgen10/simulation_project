@@ -5,10 +5,13 @@ import org.dm.simulation.actions.ActionReproduction;
 import org.dm.simulation.actions.HungryAction;
 import org.dm.simulation.actions.MoveAction;
 import org.dm.simulation.actions.init_actions.*;
+import org.dm.simulation.config.SettingsSimulation;
 import org.dm.simulation.entities.Entity;
 import org.dm.simulation.entities.creatures.Herbivore;
 import org.dm.simulation.entities.creatures.Predator;
 import org.dm.simulation.entities.static_object.Grass;
+import org.dm.simulation.model.MapSimulation;
+import org.dm.simulation.ui.Render;
 
 import java.util.ArrayList;
 import java.util.List;

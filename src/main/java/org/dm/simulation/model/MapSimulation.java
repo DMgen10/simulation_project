@@ -1,4 +1,4 @@
-package org.dm.simulation;
+package org.dm.simulation.model;
 
 import org.dm.simulation.entities.Entity;
 

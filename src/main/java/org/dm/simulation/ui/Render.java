@@ -1,4 +1,7 @@
-package org.dm.simulation;
+package org.dm.simulation.ui;
+
+import org.dm.simulation.model.MapSimulation;
+import org.dm.simulation.model.Position;
 
 public class Render {
 

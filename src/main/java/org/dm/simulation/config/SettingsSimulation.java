@@ -1,4 +1,6 @@
-package org.dm.simulation;
+package org.dm.simulation.config;
+
+import org.dm.simulation.ui.Input;
 
 public class SettingsSimulation {
 
