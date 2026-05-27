@@ -1,24 +1,28 @@
-package org.dm;
+package org.dm.simulation;
 
-import org.dm.actions.Action;
-import org.dm.actions.ActionReproduction;
-import org.dm.actions.HungryAction;
-import org.dm.actions.MoveAction;
-import org.dm.actions.init_actions.*;
-import org.dm.entities.Entity;
-import org.dm.entities.creatures.Herbivore;
-import org.dm.entities.creatures.Predator;
-import org.dm.entities.static_object.Grass;
+import org.dm.simulation.actions.Action;
+import org.dm.simulation.actions.ActionReproduction;
+import org.dm.simulation.actions.HungryAction;
+import org.dm.simulation.actions.MoveAction;
+import org.dm.simulation.actions.init_actions.*;
+import org.dm.simulation.entities.Entity;
+import org.dm.simulation.entities.creatures.Herbivore;
+import org.dm.simulation.entities.creatures.Predator;
+import org.dm.simulation.entities.static_object.Grass;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 public class Simulation {
 
     private final SettingsSimulation settings = new SettingsSimulation();
     private final MapSimulation map = new MapSimulation(settings.getWidth(), settings.getHeight());
     private final Render render = new Render(map);
-    private int count = 0; // тестово
+    private int count = 0;
+    private final Scanner scanner = new Scanner(System.in);
+    private volatile boolean isPaused = false;
+    private volatile boolean isRunning = true;
 
     private final List<Action> initActions = new ArrayList<>();
     private final List<Action> turnActions = new ArrayList<>();
@@ -38,40 +42,58 @@ public class Simulation {
             }
         }
     }
-    public void pauseSimulation(){}
-    public void startSimulation(){
-        prepareAction();
-        for (Action action: initActions){
-            action.execute(map);
-        }
+    private void pauseSimulation(){
+        this.isPaused =true;
+        System.out.println("Симуляция поставлена на паузу");
+    }
 
-        while (true){
-            nextTurn();
-            if (isOver(map)){
-//                showVictory(map);
-                break;
+    private void resumeSimulation(){
+        this.isPaused = false;
+        System.out.println("Симуляция продолжается");
+    }
+
+    private void listenToUserInput(){
+        while (isRunning){
+            if (scanner.hasNextLine()){
+                String input = scanner.nextLine().trim().toLowerCase();
+
+                if (input.equals("p") && !isPaused){
+                    pauseSimulation();
+                }
+
+                if (input.equals("s") && isPaused){
+                    resumeSimulation();
+                }
             }
         }
     }
 
-//    private void showVictory(MapSimulation map){
-//        int countHerbivores = 0;
-//        int countPredators = 0;
-//
-//        for (Entity entity: map.getMap().values()){
-//            if (entity instanceof Herbivore){
-//                countHerbivores++;
-//            }
-//            if (entity instanceof Predator){
-//                countPredators++;
-//            }
-//        }
-//        if (countHerbivores == 0){
-//            System.out.println("Выжил вид хищников");
-//        } else if (countPredators == 0){
-//            System.out.println("Выжил вид травоядных");
-//        }
-//    }
+    public void startSimulation() {
+        prepareAction();
+        for (Action action : initActions) {
+            action.execute(map);
+        }
+
+        Thread inputThread = new Thread(this::listenToUserInput);
+        inputThread.setDaemon(true);
+        inputThread.start();
+
+        while (isRunning) {
+            if (isOver(map)) {
+                isRunning = false;
+                break;
+            }
+            if (!isPaused) {
+                nextTurn();
+            } else {
+                try {
+                    Thread.sleep(100);
+                } catch (InterruptedException exception) {
+                    Thread.currentThread().interrupt();
+                }
+            }
+        }
+    }
 
     private boolean isOver(MapSimulation map){
         int countHerbivores = 0;
@@ -93,8 +115,8 @@ public class Simulation {
                 return true;
             } else if (countPredators == 0){
                 System.out.println("Выжил вид травоядных");
+                return true;
             }
-            return true;
         }
         return false;
     }
@@ -148,9 +170,4 @@ public class Simulation {
         System.out.println("Травоядных: " + countHerbivores);
         System.out.println("Травы: " + countGrass);
     }
-    
-    public static void main(String[] args) {
-        Simulation simulation = new Simulation();
-        simulation.startSimulation();
-    }
-}
+   }
