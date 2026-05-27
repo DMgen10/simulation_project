@@ -10,9 +10,7 @@ import java.util.*;
 
 public class ActionReproduction implements Action{
 
-    private final int REPR_THRESHOLD;
-    private final SettingsSimulation settingsSimulation;
-    private final MapSimulation map;
+    private final int REPRODUCTION_THRESHOLD;
 
     public ActionReproduction(MapSimulation map, SettingsSimulation settingsSimulation) {
         this.map = map;
