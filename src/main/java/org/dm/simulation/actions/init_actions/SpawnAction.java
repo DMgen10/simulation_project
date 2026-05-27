@@ -1,10 +1,10 @@
-package org.dm.actions.init_actions;
+package org.dm.simulation.actions.init_actions;
 
-import org.dm.MapSimulation;
-import org.dm.Position;
-import org.dm.SettingsSimulation;
-import org.dm.actions.Action;
-import org.dm.entities.Entity;
+import org.dm.simulation.MapSimulation;
+import org.dm.simulation.Position;
+import org.dm.simulation.SettingsSimulation;
+import org.dm.simulation.actions.Action;
+import org.dm.simulation.entities.Entity;
 
 public abstract class SpawnAction implements Action {
     protected final SettingsSimulation settings;
@@ -26,11 +26,6 @@ public abstract class SpawnAction implements Action {
                 spawned++;
             }
         }
-
-        // логика заполнения/расстановки
-        //1. случайная позиция, если незанято - ставим сколько нужно
     }
-
     protected abstract Entity spawn();
-
 }
