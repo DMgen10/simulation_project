@@ -1,9 +1,9 @@
-package org.dm.actions;
+package org.dm.simulation.actions;
 
-import org.dm.MapSimulation;
-import org.dm.Position;
-import org.dm.entities.Entity;
-import org.dm.entities.creatures.Creature;
+import org.dm.simulation.MapSimulation;
+import org.dm.simulation.Position;
+import org.dm.simulation.entities.Entity;
+import org.dm.simulation.entities.creatures.Creature;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -37,17 +37,6 @@ public class HungryAction implements Action{
         for (Position position: deadPos){
             map.remove(position);
         }
-
-//        Map.Entry<Position, Entity> positionEntityEntry = map.getMap().values();
-//       for (Map.Entry<Position, Entity> entry: map.getMap().entrySet()){
-//           Position position = entry.getKey();
-//           Entity entity = entry.getValue();
-//           if (entity instanceof Creature){
-//               ((Creature) entity).takeDamage(1);
-//               if (((Creature) entity).isDead()){
-//                   map.remove(position);
-//               }
-//           }
-//       }
+        
     }
 }
