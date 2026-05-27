@@ -1,10 +1,10 @@
-package org.dm.actions;
+package org.dm.simulation.actions;
 
-import org.dm.MapSimulation;
-import org.dm.Position;
-import org.dm.SettingsSimulation;
-import org.dm.entities.Entity;
-import org.dm.entities.creatures.Creature;
+import org.dm.simulation.MapSimulation;
+import org.dm.simulation.Position;
+import org.dm.simulation.SettingsSimulation;
+import org.dm.simulation.entities.Entity;
+import org.dm.simulation.entities.creatures.Creature;
 
 import java.util.*;
 
@@ -27,10 +27,9 @@ public class ActionReproduction implements Action{
         for (Position currentPosition: positions){
             Entity entity = map.getEntity(currentPosition);
 
-            if (entity instanceof Creature){
-                Creature parent = (Creature) entity;
+            if (entity instanceof Creature parent){
 
-                if (parent.getHealth() >= REPR_THRESHOLD && !already.contains(parent)){
+                if (parent.getHealth() >= REPRODUCTION_THRESHOLD && !already.contains(parent)){
 
 
                     Position partnerPosition = null;
@@ -46,7 +45,7 @@ public class ActionReproduction implements Action{
 
                             if (neighbor != null && neighbor.getClass() == parent.getClass()){
                                 Creature potentialPartner = (Creature) neighbor;
-                                if (potentialPartner.getHealth() >= REPR_THRESHOLD && !already.contains(potentialPartner)){
+                                if (potentialPartner.getHealth() >= REPRODUCTION_THRESHOLD && !already.contains(potentialPartner)){
                                     partnerPosition = neighborPosition;
                                     parentPartner = potentialPartner;
                                     break;
