@@ -13,9 +13,7 @@ public class ActionReproduction implements Action{
     private final int REPRODUCTION_THRESHOLD;
 
     public ActionReproduction(MapSimulation map, SettingsSimulation settingsSimulation) {
-        this.map = map;
-        this.settingsSimulation = settingsSimulation;
-        REPR_THRESHOLD = settingsSimulation.getHealthHerbivore();
+        REPRODUCTION_THRESHOLD = (settingsSimulation.getHealthHerbivore() + settingsSimulation.getHealthPredator()) / 2;
     }
 
     @Override
