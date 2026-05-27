@@ -1,4 +1,4 @@
-package org.dm.entities.static_object;
+package org.dm.simulation.entities.static_object;
 
 public class Grass extends Inanimate {
 
