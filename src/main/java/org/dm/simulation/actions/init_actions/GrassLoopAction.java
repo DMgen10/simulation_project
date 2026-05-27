@@ -1,12 +1,12 @@
-package org.dm.actions.init_actions;
+package org.dm.simulation.actions.init_actions;
 
-import org.dm.MapSimulation;
-import org.dm.SettingsSimulation;
-import org.dm.entities.Entity;
-import org.dm.entities.static_object.Grass;
+import org.dm.simulation.MapSimulation;
+import org.dm.simulation.Position;
+import org.dm.simulation.SettingsSimulation;
+import org.dm.simulation.entities.Entity;
+import org.dm.simulation.entities.static_object.Grass;
 
 public class GrassLoopAction extends SpawnAction {
-
 
     public GrassLoopAction(SettingsSimulation settings) {
         super(settings ,settings.getCountGrass());
@@ -14,14 +14,17 @@ public class GrassLoopAction extends SpawnAction {
 
     @Override
     public void execute(MapSimulation map) {
-            int count = settings.getCountGrass();
+            int count = 0;
             for (Entity entity: map.getMap().values()){
                 if (entity instanceof Grass){
                     count++;
                 }
             }
             if (count == 0){{
-                spawn();
+                for (int i = 0; i < settings.getCountGrass(); i++) {
+                    Position position = map.getRandomPosition();
+                    map.add(position,spawn());
+                }
             }
             }
     }
@@ -29,6 +32,5 @@ public class GrassLoopAction extends SpawnAction {
     @Override
     protected Entity spawn() {
         return new Grass(settings.getNutritionalValue());
-
     }
 }
