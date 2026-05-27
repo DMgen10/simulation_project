@@ -1,8 +1,8 @@
-package org.dm.actions.init_actions;
+package org.dm.simulation.actions.init_actions;
 
-import org.dm.SettingsSimulation;
-import org.dm.entities.Entity;
-import org.dm.entities.creatures.Herbivore;
+import org.dm.simulation.SettingsSimulation;
+import org.dm.simulation.entities.Entity;
+import org.dm.simulation.entities.creatures.Herbivore;
 
 public class SpawnHerbivore extends SpawnAction{
 
