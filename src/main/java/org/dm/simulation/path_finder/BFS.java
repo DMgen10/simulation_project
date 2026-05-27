@@ -1,9 +1,8 @@
-    package org.dm.path_finder;
+    package org.dm.simulation.path_finder;
 
-    import org.dm.MapSimulation;
-    import org.dm.Position;
-    import org.dm.entities.Entity;
-
+    import org.dm.simulation.MapSimulation;
+    import org.dm.simulation.Position;
+    import org.dm.simulation.entities.Entity;
     import java.util.*;
 
     public class BFS implements PathFinder{
