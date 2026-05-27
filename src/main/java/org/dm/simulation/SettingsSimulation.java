@@ -1,4 +1,4 @@
-package org.dm;
+package org.dm.simulation;
 
 public class SettingsSimulation {
 
@@ -13,8 +13,6 @@ public class SettingsSimulation {
     private int speedPredator;
     private int damage;
 
-    private int countEntities;
-    private int countCreatures;
     private int countPredators;
     private int countHerbivores;
     private int countRocks;
@@ -27,16 +25,6 @@ public class SettingsSimulation {
         installSettings();
     }
 
-    /*
-    1. количество сущностей 50% от карты
-    2. количество существ 50% от сущностей
-    3. количество хищников ровно 50 % от существ (должно быть строго столько же сколько и хищников)
-    4. количество травоядных ровно 50 % от существ (должно быть строго столько же сколько и травоядных)
-    5. количество камней 10 % от сущностей
-    6. количество травы 25 % от сущностей
-    7. количество дереьвьев 10 % от сущностей
-     */
-
     private void installSettings(){
         // размеры от 10 до 40
         width = input.inputValue("ширина доски");
@@ -46,7 +34,7 @@ public class SettingsSimulation {
         healthPredator = input.inputValue("здоровье хищника");
         // скорость от 1 до 4
         speedHerbivore = input.inputValue("скорость травоядного");
-        speedPredator = input.inputValue("скрость хищника");
+        speedPredator = input.inputValue("скорость хищника");
         // урон от 1 до 4
         damage = input.inputValue("атака хищника");
 
@@ -57,8 +45,8 @@ public class SettingsSimulation {
     private void calculated(){
         int totalCells = width * height;
 
-        countEntities = totalCells * 50 / 100;
-        countCreatures = countEntities * 50 / 100;
+        int countEntities = totalCells * 50 / 100;
+        int countCreatures = countEntities * 50 / 100;
 
         countHerbivores = countCreatures / 2;
         countPredators = countHerbivores;
@@ -99,14 +87,6 @@ public class SettingsSimulation {
         return damage;
     }
 
-    public int getCountEntities() {
-        return countEntities;
-    }
-
-    public int getCountCreatures() {
-        return countCreatures;
-    }
-
     public int getCountPredators() {
         return countPredators;
     }
@@ -130,10 +110,6 @@ public class SettingsSimulation {
     public int getNutritionalValue() {
         return nutritionalValue;
     }
-
-    public static void main(String[] args) {
-        SettingsSimulation setings = new SettingsSimulation();
-        setings.installSettings();
-    }
+    
 }
 
