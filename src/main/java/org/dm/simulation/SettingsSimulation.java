@@ -110,6 +110,5 @@ public class SettingsSimulation {
     public int getNutritionalValue() {
         return nutritionalValue;
     }
-    
 }
 
