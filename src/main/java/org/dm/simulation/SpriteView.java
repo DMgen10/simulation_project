@@ -1,12 +1,11 @@
-package org.dm;
+package org.dm.simulation;
 
-import org.dm.entities.Entity;
-import org.dm.entities.creatures.Herbivore;
-import org.dm.entities.creatures.Predator;
-import org.dm.entities.static_object.Grass;
-import org.dm.entities.static_object.Rock;
-import org.dm.entities.static_object.Tree;
-
+import org.dm.simulation.entities.Entity;
+import org.dm.simulation.entities.creatures.Herbivore;
+import org.dm.simulation.entities.creatures.Predator;
+import org.dm.simulation.entities.static_object.Grass;
+import org.dm.simulation.entities.static_object.Rock;
+import org.dm.simulation.entities.static_object.Tree;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -33,5 +32,4 @@ public class SpriteView {
         }
         return sprites.get(entity.getClass());
     }
-
 }
